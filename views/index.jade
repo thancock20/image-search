@@ -1,0 +1,34 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    title API Project: URL Shortener
+    link(rel="stylesheet", href="main.css", type="text/css")
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7", crossorigin="anonymous")
+  body
+    .container
+      h1 API Project: URL Shortener
+
+      p Implements the following User stories:
+      ul
+        li I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.
+        li If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain an error instead.
+        li When I visit that shortened URL, it will redirect me to my original link.
+
+      h2 Example Usage (New Short URL):
+      pre.code
+        code #{hostname}/new/http://www.google.com
+
+      h2 Example output:
+      pre.code
+        code { "original_url": "http://www.google.com", "short_url": "#{hostname}/1" }
+        
+      h2 Usage:
+      pre.code
+        code #{hostname}/1
+        
+      h2 Will Redirect To:
+      pre.code
+        code http://www.google.com
+
+      a(href="https://github.com/thancock20/url-shortener") See the code on Github
