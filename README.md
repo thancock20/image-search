@@ -1,12 +1,12 @@
-# url-shortener
-My implementation of the URL shortener API project from freeCodeCamp.
+# image-search
+My implementation of the Image Search Abstraction Layer project from freeCodeCamp.
 
-[See the app on Heroku](https://sh-url.herokuapp.com)
+[See the app on Heroku]()
 
 Implements the following User stories:
-* I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.
-* If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain an error instead.
-* When I visit that shortened URL, it will redirect me to my original link.
+* I can get the image URLs, alt text and page urls for a set of images relating to a given search string.
+* I can paginate through the responses by adding a ?offset=2 parameter to the URL.
+* I can get a list of the most recently submitted search strings.
 
 ## Getting Started
 ```
@@ -14,14 +14,14 @@ npm install
 node server.js
 ```
 
-## Example Usage (New Short URL):
-`http://localhost:8080/new/http://www.google.com`
+## Example Search Usage:
+`http://localhost:8080/imagesearch/lolcats%20funny?offset=10`
 
-## Example Output:
+## Example Search Output:
 `{ "original_url": "http://www.google.com", "short_url": "http://localhost:8080/1" }`
 
-## Usage:
-`http://localhost:8080/1`
+## Example Recent Searches Usage:
+`http://localhost:8080/recent`
 
-## Will Redirect To:
+## Example Recent Searches Output:
 `http://www.google.com`
