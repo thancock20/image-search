@@ -18,10 +18,10 @@ node server.js
 `http://localhost:8080/imagesearch/lolcats%20funny?offset=10`
 
 ## Example Search Output:
-`{ "original_url": "http://www.google.com", "short_url": "http://localhost:8080/1" }`
+`TODO`
 
 ## Example Recent Searches Usage:
 `http://localhost:8080/recent`
 
 ## Example Recent Searches Output:
-`http://www.google.com`
+`TODO`
