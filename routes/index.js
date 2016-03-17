@@ -12,8 +12,10 @@ router.get('/', function(req, res) {
 });
 
 router.get('/imagesearch/:term', function(req, res) {
-  console.log(req.params.term);
-  console.log(req.query.offset);
+  var term = req.params.term;
+  var offset = req.query.offset || 0;
+  console.log(term);
+  console.log(offset);
   /* var url = new Url();
   url.original_url = original_url;
   url.save(function(err) {
