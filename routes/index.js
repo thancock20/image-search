@@ -1,5 +1,9 @@
 var express = require('express');
 var search = require('../models/search');
+var phantom = require('x-ray-phantom');
+var Xray = require('x-ray');
+var x = Xray()
+  .driver(phantom());
 
 var router = express.Router();
 
@@ -16,6 +20,8 @@ router.get('/imagesearch/:term', function(req, res) {
   var offset = req.query.offset || 0;
   console.log(term);
   console.log(offset);
+  // Below needs to be fixed, currently gives error.
+  console.log(x('https://www.google.com/search?q=' + term + '&source=lnms&tbm=isch', 'body@html').write());
   /* var url = new Url();
   url.original_url = original_url;
   url.save(function(err) {
