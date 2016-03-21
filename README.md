@@ -11,6 +11,15 @@ Implements the following User stories:
 ## Getting Started
 ```
 npm install
+```
+Get a Bing Search API key as described [here](https://www.npmjs.com/package/bing.search#getting-started).
+
+Create a `.env` file in the projects root directory, and add the following:
+```
+BING_API_KEY=<Your api key>
+```
+Then, you can start the server:
+```
 node server.js
 ```
 
