@@ -1,5 +1,8 @@
 var express = require('express');
-var search = require('../models/search');
+var Search = require('../models/search');
+var BingSearch = require('bing.search');
+var util = require('util');
+var bingSearch = new BingSearch(process.env.BING_API_KEY);
 
 var router = express.Router();
 
@@ -14,8 +17,22 @@ router.get('/', function(req, res) {
 router.get('/imagesearch/:term', function(req, res) {
   var term = req.params.term;
   var offset = req.query.offset || 0;
-  console.log(term);
-  console.log(offset);
+  var search = new Search();
+  search.term = term;
+  search.save(function(err) {
+    if (err) throw(err);
+    var hostname = req.hostname === 'localhost' ? 'http://localhost:' + port : req.protocol + '://' + req.hostname;
+  });
+  bingSearch.images(term, {top: 10 + +offset}, function(err, results) {
+    if (err) res.send(err);
+    res.json(results.slice(offset).map(function(result) {
+      return {
+        imageUrl: result.url,
+        altText: result.title,
+        pageUrl: result.sourceUrl
+      }
+    }));
+  });
   /* var url = new Url();
   url.original_url = original_url;
   url.save(function(err) {
