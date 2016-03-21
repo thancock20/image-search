@@ -33,25 +33,17 @@ router.get('/imagesearch/:term', function(req, res) {
       }
     }));
   });
-  /* var url = new Url();
-  url.original_url = original_url;
-  url.save(function(err) {
-    if (err) res.send(err);
-    var hostname = req.hostname === 'localhost' ? 'http://localhost:' + port : req.protocol + '://' + req.hostname;
-    res.json({
-      original_url: original_url,
-      short_url: hostname + '/' + url.id
-    });
-  }); */
 });
 
-/* router.get('/:url_id', function(req, res) {
-  Url.findById(req.params.url_id, function(err, url) {
-    if (err)
-      res.send(err);
-    if (url)
-      res.redirect(url.original_url);
-  });
-}); */
+router.get('/recent', function(req, res) {
+  Search.find(function(err, docs) {
+    res.json(docs.reverse().slice(0,10).map(function(item) {
+      return {
+        term: item.term,
+        when: item.when
+      }
+    }));
+  })
+});
 
 module.exports = router;
