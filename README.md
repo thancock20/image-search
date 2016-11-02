@@ -14,7 +14,7 @@ npm install
 ```
 Get a Bing Search API key as described [here](https://www.npmjs.com/package/bing.search#getting-started).
 
-Create a `.env` file in the projects root directory, and add the following:
+Create a `.env` file in the project's root directory, and add the following:
 ```
 BING_API_KEY=<Your api key>
 ```
